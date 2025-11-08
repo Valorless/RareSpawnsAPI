@@ -4,4 +4,4 @@ This is a repository containing the default resources of the RareSpawns project,
 https://valorless.github.io/RareSpawns
 
 # Wiki
-https://github.com/Valorless/RareSpawnsWiki/wiki
+https://github.com/Valorless/RareSpawnsLite/wiki
