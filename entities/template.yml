@@ -1,0 +1,170 @@
+### Spawn Weight
+# Config.yml contains the chance to spawn a RareEntity.
+# When that triggers, all RareEntities are chosen randomly based on their weight.
+# If this has a weight of 40, and the other has a weight of 60,
+# there's a 40% chance this RareEntity will be chosen.
+weight: 10
+spawn-group: group1 # The group defined in config.yml, if no group is set fallback to "default" spawn-group.
+
+# Conditions required in order to spawn
+conditions:
+ select-new: true # Should a new rare be selected, if conditions weren't met for this one?
+ biomes: # Which biomes is the rare allowed to spawn in? namespace:biomeId
+ - 'minecraft:forest'
+ - 'minecraft:birch_forest'
+ - 'terralith:highlands'
+ biome-blacklist: false # Treat biomes as a blacklist.
+ weather: CLEAR # CLEAR, RAIN or THUNDER
+ time: DAY # SUNRISE, DAY, SUNSET, NIGHT or a custom range like '0-24000'
+
+# Everything except 'type' is optional.
+
+### Regular Variables
+name: 'Dragon Slayer'
+name-visible: false # Don't use if you use nameplate.
+nameplate:
+ text:
+  - 'Dragon Slayer'
+  - 'line 2'
+ text-shadow: true
+ line-width: 0 # 0 or remove to ignore; Sets the maximum line width before wrapping. 
+ billboard: CENTER # https://helpch.at/docs/1.21.1/org/bukkit/entity/Display.Billboard.html
+ scale: 1.0
+ background: false
+ background-color: BLUE # https://helpch.at/docs/1.21.1/org/bukkit/Color.html or Hex Color
+ see-through: false # Glitches with shadows enabled.
+ view-distance: 60
+ offset: 0, 1.5, 0
+type: ZOMBIE # Can only be living entities.
+health: 2000
+effects:
+# https://helpch.at/docs/1.21.1/org/bukkit/potion/PotionEffectType.html
+ - SPEED:1 
+ - FIRE_RESISTANCE:1
+items: # Can be custom items.
+ main-hand: template
+ off-hand: ''
+ helmet: CARVED_PUMPKIN
+ chestplate: IRON_CHESTPLATE
+ leggings: ''
+ boots: ''
+can-despawn: false
+anti-stuck: true # Teleport to target if stuck. Being stuck is based on movement over a little time.
+attributes:
+# https://helpch.at/docs/1.21.1/org/bukkit/attribute/Attribute.html
+ - SCALE:2
+ - MOVEMENT_SPEED:0.05 # 0.1 is default speed.
+iframes: 20 # Immunity Frames; How often in ticks the rare can be hit, default 20 ticks.
+
+spawn-message:
+  message: # Send message to those in range when spawned
+    - '&8==========================================='
+    - '&6The Dragon Slayer has risen!'
+    - 'Slay him quickly for unfathomable treasure!'
+    - '&8==========================================='
+  radius: 100 # blocks
+ # sound:volume:pitch - If only sound, volume & pitch will be 1.0.
+  sound: ITEM_GOAT_HORN_SOUND_5:1.0:0.75 # https://helpch.at/docs/1.21.1/org/bukkit/Sound.html
+
+death-message:
+ message: # Send message to those in range when spawned
+  - '&8==========================================='
+  - '&6The Dragon Slayer has fallen!'
+  - 'The lands remain safe once more.'
+  - '&8==========================================='
+ radius: 100 # blocks
+ # sound:volume:pitch - If only sound, volume & pitch will be 1.0.
+ sound: ITEM_GOAT_HORN_SOUND_0:1.0:0.9 # https://helpch.at/docs/1.21.1/org/bukkit/Sound.html
+
+drop-table:
+ real: true # Whether its on the real drop table, or if RareSpawns should drop the items.
+ items:
+  # material:amount
+  # material:amount:chance
+  # material:min-max:chance
+  - template:1
+  - DIAMOND:1:20
+  - EMERALD:1-4:20
+
+abilities:
+ # abilityName:cooldown (In seconds)
+ # If no cooldown is given, the ability's cooldown is chosen.
+ - template
+
+bossbar:
+ name: '&6Dragon Slayer'
+ color: BLUE # https://helpch.at/docs/1.21.1/org/bukkit/boss/BarColor.html
+ style: SEGMENTED_20 # https://helpch.at/docs/1.21.1/org/bukkit/boss/BarStyle.html
+ distance: 50
+
+### Misc
+hostile: true # If the mob is a passive/neutral mob, make it hostile towards players.
+ai: true
+aggro-range: 20 # How far should the rare notice players and attack them?
+arrows-in-body: 10
+arrows-despawn-ticks: 999999
+baby: false
+pick-up-items: false
+collidable: true
+gliding: false
+invisible: false
+leadable: false
+underwater_breath: 200 # 20 ticks = 1 second
+remove-when-far-away: false
+riptiding: false
+swimming: false
+passenger: ZOMBIE #example, can be custom too.
+fall-distance: 3
+fire-ticks: 0 # 20 ticks = 1 second
+on-fire: true # Is the entity visually on fire, even while not burning?
+glowing: false
+gravity: true
+use-portals: false
+silent: false
+visible-by-default: true
+slime-size: 1
+slime-split: false
+wolf-angry: true
+wolf-type: BLACK # https://helpch.at/docs/1.21.1/org/bukkit/entity/Wolf.Variant.html
+cat-type: JELLIE # https://helpch.at/docs/1.21.1/org/bukkit/entity/Cat.Type.html
+horse:
+ color: WHITE # https://helpch.at/docs/1.21.1/org/bukkit/entity/Horse.Color.html
+ style: BLACK_DOTS # https://helpch.at/docs/1.21.1/org/bukkit/entity/Horse.Style.html
+ armor: DIAMOND_HORSE_ARMOR # https://helpch.at/docs/1.21.1/org/bukkit/Material.html
+parrot-type: RED # https://helpch.at/docs/1.21.1/org/bukkit/entity/Parrot.Variant.html
+rabbit-type: GOLD # https://helpch.at/docs/1.21.1/org/bukkit/entity/Rabbit.Type.html
+axolotl-type: CYAN # https://helpch.at/docs/1.21.1/org/bukkit/entity/Axolotl.Variant.html
+tropical-fish:
+ color: GREEN # https://helpch.at/docs/1.21.1/org/bukkit/DyeColor.html
+ pattern: DASHER # https://helpch.at/docs/1.21.1/org/bukkit/entity/TropicalFish.Pattern.html
+ pattern-color: BLACK #https://helpch.at/docs/1.21.1/org/bukkit/DyeColor.html
+panda:
+ main-gene: LAZY # https://helpch.at/docs/1.21.1/org/bukkit/entity/Panda.Gene.html
+ hidden-gene: AGGRESSIVE
+vanilla-tameable: false
+tameable: # Attempt to tame the entity on right-click. The entity must be tameable naturally, cannot tame Zombies for example.
+ item: NETHER_STAR # Can be custom item too.
+ chance: 10 # If failed, the item is consumed.
+ # sound:volume:pitch - If only sound, volume & pitch will be 1.0.
+ fail-sound: ENTITY_WOLF_GROWL:0.5:1.0 # https://helpch.at/docs/1.21.1/org/bukkit/Sound.html
+ fail-particle: SMOKE # https://helpch.at/docs/1.21.1/org/bukkit/Particle.html
+ fail-particle-amount: 10
+ # sound:volume:pitch - If only sound, volume & pitch will be 1.0.
+ tame-sound: ENTITY_WOLF_HOWL:0.5:1.0 # https://helpch.at/docs/1.21.1/org/bukkit/Sound.html
+ tame-particle: HEART # https://helpch.at/docs/1.21.1/org/bukkit/Particle.html
+ tame-particle-amount: 10
+spellcaster: # Evoker & Illusioner
+ spells: # https://helpch.at/docs/1.21/org/bukkit/entity/Spellcaster.Spell.html
+  - FANGS
+  - BLINDNESS
+immune-to:
+# https://helpch.at/docs/1.21.1/org/bukkit/event/entity/EntityDamageEvent.DamageCause.html
+#- ALL # Adds all DamageCauses
+ - LAVA
+ - DROWNING
+ - FREEZE
+ - HOT_FLOOR
+ - CAMPFIRE
+ - CONTACT
+ - DRYOUT
+ - SUFFOCATION

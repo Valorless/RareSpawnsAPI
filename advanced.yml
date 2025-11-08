@@ -1,0 +1,17 @@
+#########
+#
+# This is for advanced settings only, is you aren't familiar with
+# some of the things in this file, please refrain from touching anything.
+#
+#########
+
+# While this setting is marked false, everything else is not in use.
+i-understand: false
+
+# Ability/Power Compiler
+compiler:
+ # Add jars to the compiler, in order to use their classes/methods.
+ # Looks for jars in ../plugins/
+ classpath:
+  - 'RareSpawns-1.0.0.202.jar' # Example - ../plugins/RareSpawns-1.0.0.202.jar
+  - 'RareSpawns/extension/CoolPlugin.jar' # Example in sub-folders - ../plugins/RareSpawns/extension/CoolPlugin.jar

@@ -1,0 +1,37 @@
+name: RareSpawns
+main: valorless.rarespawns.Main
+version: version-number
+author: Valorless
+api-version: 1.18
+depend: [ValorlessUtils]
+soft-depend: [PlaceholderAPI, Nexo, WorldGuard, mcMMO, GriefPrevention]
+commands:
+  rarespawns:
+    description: Main command.
+    usage:
+    aliases: [rares, rare]
+permissions:
+  rarespawns.*:
+    description: Gives access to all RareSpawns commands.
+    children:
+      rarespawns.reload: true
+      rarespawns.item: true
+      rarespawns.spawn: true
+      rarespawns.kill: true
+      rarespawns.optout: true
+  rarespawns.reload:
+    description: Allows you to reload the configuration.
+    default: op
+  rarespawns.item:
+    description: Allows you to spawn in items from the plugin.
+    default: op
+  rarespawns.spawn:
+    description: Allows you to spawn in entities from the plugin.
+    default: op
+  rarespawns.kill:
+    description: Allows you to kill rare entities from the plugin, using the command.
+    default: op
+  rarespawns.optout:
+    description: Allows you to opt-out of rares spawning near you.
+    default: op
+  

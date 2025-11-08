@@ -1,0 +1,309 @@
+# ################################################################### #
+# Everything except 'material' is optional.
+# Though some sections may require some of their own values to work.
+# ################################################################### #
+
+# Should the item update it's data when found?
+# This will replace the in-game item with a newly built one.
+update-item: false
+
+item-name: 'Dragon Slayer'
+display-name: '&6Dragon Slayer'
+lore:
+ - '&bline1'
+ - 'line2'
+material: IRON_SWORD # https://helpch.at/docs/1.21.4/org/bukkit/Material.html
+amount: 1
+max-stack: 1 # Between 1 and 99 (inclusive)
+model-data: 0
+item-model: ''
+durability: 1000
+missing-durability: 200
+unbreakable: false
+hide-tooltip: false
+rarity: EPIC # https://helpch.at/docs/1.21.4/org/bukkit/inventory/ItemRarity.html 
+enchants:
+# https://helpch.at/docs/1.21.1/org/bukkit/enchantments/Enchantment.html
+# - enchantment:min-max
+# - enchantment:level
+ - SHARPNESS:5-7
+ - UNBREAKING:1-3
+ - MENDING:0-1
+attributes:
+# https://helpch.at/docs/1.21.1/org/bukkit/attribute/Attribute.html
+# https://helpch.at/docs/1.21.1/org/bukkit/inventory/EquipmentSlotGroup.html
+# https://helpch.at/docs/1.21.1/org/bukkit/attribute/AttributeModifier.Operation.html
+# - attribute:min_max:slot:operation # Cant be - as thats used for negative numbers, so we're using underscore _.
+# - attribute:value:slot:operation
+ - ATTACK_DAMAGE:12_15:MAINHAND:ADD_NUMBER
+ - ATTACK_SPEED:0.15:MAINHAND:ADD_SCALAR
+item-flags:
+# https://helpch.at/docs/1.21.1/org/bukkit/inventory/ItemFlag.html
+ - HIDE_ENCHANTS
+nbt:
+# key:value:type (string (text), integer (whole number), boolean (true/false), double (decimal number))
+ - key:value:STRING
+tags:
+# namespace:key:value:type (string (text), integer (whole number), boolean (true/false), double (decimal number))
+ - namespace:key:value:STRING
+ 
+### Misc
+use-cooldown: # 1.21.2+
+ cooldown: 1.5 # Sets the time in seconds it will take for an item in this cooldown group to be available to use again.
+ group: rarespawns:cooldown # NamespacedKey (i.e namespace:key) Sets the custom cooldown group to be used for similar items.
+ 
+use-remainder: STONE_SWORD:1 # 1.21.2+ Sets the item which this item will convert to when used, can be custom items.
+# material:amount
+# custom:amount:randomstats - template:1:true
+
+trim:
+ pattern: minecraft:snout # https://helpch.at/docs/1.21.4/org/bukkit/inventory/meta/trim/TrimPattern.html
+ material: minecraft:copper # https://helpch.at/docs/1.21.4/org/bukkit/inventory/meta/trim/TrimMaterial.html
+
+# Leather Armor
+dyed: '#63faff' 
+
+tooltip-style: namespace:key # 1.21.2+
+
+# Should this item be kept through death?
+# May be incompatible with other grave plugins.
+soulbound: false
+
+banner-patterns:
+# https://helpch.at/docs/1.21.1/org/bukkit/block/banner/PatternType.html
+# https://helpch.at/docs/1.21.1/org/bukkit/DyeColor.html
+# pattern:color
+ - RHOMBUS:CYAN
+ - STRIPE_BOTTOM:LIGHT_GRAY
+
+potion-effects:
+# if 'material' is a potion type, or TIPPED_ARROW
+# https://helpch.at/docs/1.21.1/org/bukkit/potion/PotionEffect.html
+# https://helpch.at/docs/1.21.1/org/bukkit/potion/PotionEffectType.html
+# effect:level:duration:ambient:particles:icon
+ - SPEED:1:20 
+ - STRENGTH:2:10:false:true:false
+
+# For ENCHANTED_BOOK
+stored-enchantments:
+# https://helpch.at/docs/1.21.1/org/bukkit/enchantments/Enchantment.html
+# enchant:level
+ - UNBREAKING:5
+ - LOOTING:4
+ - MENDING
+
+totem:
+ resurrect: true # Should this item work as a Totem of Undying?
+ held: false # Must the totem be held to work, or can the inventory be enough?
+ # sound:volume:pitch - If only sound, volume & pitch will be 1.0.
+ sound: ITEM_GOAT_HORN_SOUND_4:1.0:1.0 # https://helpch.at/docs/1.21.1/org/bukkit/Sound.html
+
+spawner:
+ type: ZOMBIE # https://helpch.at/docs/1.21.1/org/bukkit/entity/EntityType.html
+ spawn-count: 5 # Set how many mobs attempt to spawn.
+ delay: 200 # If set to -1, the spawn delay will be reset to a random value between getMinSpawnDelay() and getMaxSpawnDelay().
+ min-spawn-delay: 100 # Set the minimum spawn delay amount (in ticks).
+ max-spawn-delay: 600 # Set the maximum spawn delay amount (in ticks).
+ max-nearby-entities: 7 # Set the maximum number of similar entities that are allowed to be within spawning range of this spawner.
+
+food:
+ # Values are an example of HONEY_BOTTLE
+ hunger: 6 # 6 = 3 drumstick.
+ saturation: 1.2 # Saturation is an instant status effect that reduces the need for eating.
+ eat-speed: 1.61 # Time in seconds it will take for this item to be eaten.
+ converts-to: GLASS_BOTTLE # What the item becomes when eaten. Like an empty glass bottle. Can be custom item. pre-1.21.4
+ can-always-eat: false # Sets if this item can be eaten even when not hungry.
+ effects:
+  # Ofc honey bottles have no effects, but still.
+  # duration in ticks. (20 = 1s)
+  # effect:level:duration:chance (0.5 = 50%)
+  - SPEED:1:200:0.5
+ sound: ENTITY_GENERIC_EAT # 1.21.4+ Sets the sound to play during and on completion of the item's consumption.
+ sound-done: ENTITY_ENDERMAN_SCREAM:1.2:0.6 # Sets the sound to play when the item is eaten. sound:volume:pitch - If only sound, volume & pitch will be 1.0.
+ # https://helpch.at/docs/1.21.1/org/bukkit/Sound.html
+ particles: true # 1.21.4+ Sets whether consumption particles are emitted while consuming this item.
+ animation: EAT # 1.21.4+ https://helpch.at/docs/1.21.4/org/bukkit/inventory/meta/components/consumable/ConsumableComponent.Animation.html
+
+tool:
+ base: IRON_PICKAXE # Tool we'll use as our tool base.
+ mining-speed: 6.0
+ damage-per-block: 1
+ blocks: # List of blocks this tool is for.
+  - STONE
+  - IRON_ORE
+  - COAL_ORE
+  - GRANITE
+  - DIRT
+  
+playable:
+ song: minecraft:pigstep # namespace:song - https://helpch.at/docs/1.21.1/org/bukkit/JukeboxSong.html
+ song-tooltip: true # Sets if the song will show in the item tooltip.
+head-texture: 'eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmYyN2U1M2YxMDFjMzQ5ODAxZmMzMzJhZDIzYTMyNTQ3MjU4MThhMDE3MDdkNTUyZTYzM2E2MzRhZTJjZjBkMSJ9fX0='
+
+sounds:
+ # https://helpch.at/docs/1.21.1/org/bukkit/Sound.html
+ # sound:volume:pitch - If only sound, volume & pitch will be 1.0.
+ pickup: BLOCK_RESPAWN_ANCHOR_CHARGE:1.3:1.0
+ drop: BLOCK_RESPAWN_ANCHOR_DEPLETE:1.0:0.7
+ break: ENTITY_ITEM_BREAK
+ 
+drops-multiplier:
+ crops: 1.0 # How much is harvested when a crop is broken? (1.0 = 100%)
+ # A 'harvest' is when a block drops an item (usually some sort of crop) and changes state, but is not broken in order to drop the item.
+ harvesting: 1.0 # (1.0 = 100%)
+ shearing: 1.4 # How much wool should drop when a sheep is sheared? (1.4 = 140%)
+ 
+fishing: # Requires type to be FISHING_ROD.
+ exp-drop: 3 # Sets the amount of experience received when fishing.
+ apply-lure: false # Set whether the lure enchantment should be applied to reduce the wait time.
+ lure-angle:
+  min: 0 # Set the minimum angle (in degrees, 0 being positive Z 90 being negative X) of where a fish will appear after the wait time.
+  max: 360 # Set the maximum angle (in degrees, 0 being positive Z 90 being negative X) of where a fish will appear after the wait time.
+ lure-time:
+  min: 20 # Set the minimum number of ticks one has to wait for a fish to bite after appearing.
+  max: 80 # Set the maximum number of ticks one has to wait for a fish to bite after appearing.
+ wait-time:
+  min: 100 # Set the minimum number of ticks one has to wait for a fish appearing.
+  max: 600 # Set the maximum number of ticks one has to wait for a fish appearing.
+ rain-influenced: false # Set whether or not wait and lure time will be impacted by rain.
+ sky-influenced: false # Set whether or not wait and lure time will be impacted by direct sky access.
+ # sound:volume:pitch - If only sound, volume & pitch will be 1.0.
+ sound-cast: ENTITY_SALMON_FLOP:1.0:1.0 # https://helpch.at/docs/1.21.1/org/bukkit/Sound.html
+ sound-bite: ENTITY_SALMON_HURT:1.0:1.0 # https://helpch.at/docs/1.21.1/org/bukkit/Sound.html
+ sound-caught: ENTITY_SALMON_DEATH # https://helpch.at/docs/1.21.1/org/bukkit/Sound.html
+ 
+# For KNOWLEDGE_BOOK
+# Reveals available crafting recipe to the player when used.
+knowledge-book: minecraft:beacon # namespace:recipe-key
+
+# For WRITTEN_BOOK
+written-book:
+ title: 'Cool Book'
+ author: 'Mc. Cool Guy'
+ generation: TATTERED # https://helpch.at/docs/1.21.4/org/bukkit/inventory/meta/BookMeta.Generation.html
+ pages: # Up to a maximum of 100 pages with 1024 characters per page.
+  '0':
+   - 'The first page has an interesting entry.'
+   - 'It appears to be about multiple lines.'
+  '1':
+   - 'The second page is boring..'
+  third-page:
+   - 'The third page shows you can name the pages whatever.'
+   - 'the names of the pages dont matter, numbers are just easier.'
+   
+equippable: # 1.21.2+
+ slot: CHEST # Sets the slot the item can be equipped to. https://helpch.at/docs/1.21.4/org/bukkit/inventory/EquipmentSlot.html
+ model: namespace:key # Sets the key of the model to use when equipped.
+ glider: true # Sets if this item is a glider, like the Elytra.
+ swappable: false # Sets if the item is swappable by right clicking.
+ camera-overlay: namespace:key # Sets the key of the camera overlay to use when equipped.
+ damage-on-hurt: true # Sets if the item will be damaged when the wearing entity is damaged.
+ dispensable: false # Sets whether the item can be equipped by a dispenser.
+ equip-sound: ITEM_ARMOR_EQUIP_GENERIC # Sets the sound to play when the item is equipped. https://helpch.at/docs/1.21.4/org/bukkit/Sound.html
+ allowed-entities: # https://helpch.at/docs/1.21.4/org/bukkit/entity/EntityType.html
+  - PLAYER
+  - ZOMBIE
+  - SKELETON
+  
+# For EGG (Regular egg)
+egg:
+ hatch: true # Whether it should hatch 100% of the time.
+ type: ZOMBIE # Change the type of mob being hatched by the egg.
+ amount: 1 # Change the number of mobs coming out of the hatched egg.
+ # sound:volume:pitch - If only sound, volume & pitch will be 1.0.
+ sound: ENTITY_ENDERMAN_SCREAM:1.0:0.8 # Sound played when the egg is thrown. https://helpch.at/docs/1.21.4/org/bukkit/Sound.html
+  
+# PowerItem, Custom Mechanics Feature.
+# https://github.com/Valorless/RareSpawns/wiki/PowerItem
+poweritem:
+ # PowerItem Types:
+ # BREAKER: Break specific blocks.
+ # REDSTONE: Power on the redstone block interacted with.
+ # TROWEL: Place a random block from the player's hotbar, excellent for texturing walls or roads.
+ type: 'BREAKER' # BREAKER, REDSTONE, TROWEL
+ consumable: true # Is the item consumed on use?
+ blocks: # Blocks the BREAKER or REDSTONE poweritem can work on.
+ - BEDROCK # https://helpch.at/docs/1.21.4/org/bukkit/Material.html
+ - VAULT
+ worlds: # World the item works in.
+ # To mark all nethers or ends, just add *_nether or *_the_end
+ - 'worldName'
+ - '*_nether'
+ - '*_the_end'
+ # BREAKER-only, Should the broken block drop itself?
+ drops: false
+ # BREAKER-only, Should the block have to be ominous? (Vault/Trial Spawner)
+ ominous: false
+ # TROWEL-only, How big is the delay between placing a block, if right-click is held down? (milliseconds)
+ trowel-delay: 100
+ trowel-cost: 1 # How much durability does every use cost?
+ permission: template.use # Permission required to use this item.
+ # sound:volume:pitch - If only sound, volume & pitch will be 1.0.
+ sound: BLOCK_END_PORTAL_FRAME_FILL:1.0:1.0 # Sound played when the item is used. https://helpch.at/docs/1.21.4/org/bukkit/Sound.html
+
+soulstone: # Right-click this item on the ground to summon the specified entity.
+ entity: template # Can be regular living or custom mobs. https://helpch.at/docs/1.21.4/org/bukkit/entity/EntityType.html
+ # sound:volume:pitch - If only sound, volume & pitch will be 1.0.
+ sound: ENTITY_EVOKER_CAST_SPELL:1.0:1.0 # Sound played when the item is used. https://helpch.at/docs/1.21.4/org/bukkit/Sound.html
+ 
+# SoulHarvester, Custom Mechanics Feature, ever-growing items.
+# Attributes of the same attribute overwrite eachother.
+# Incompatible with update-item!
+soul-harvester:
+ gain-method: KILL # KILL, MINING, DEFENCE, FISHING, BUILDING
+ souls-per-gain: 1 # Souls granted per gain.
+ max-souls: 1000 # Max souls the item can hold.
+ # sound:volume:pitch - If only sound, volume & pitch will be 1.0.
+ unlock-sound: BLOCK_RESPAWN_ANCHOR_SET_SPAWN:1.0:1.0 # Sound played when unlocked, default if no upgrade sound is chosen.
+ # particle:amount:offset:extra - Missing values will be defaulted.
+ unlock-particle: REVERSE_PORTAL:20:0.5:0.02 # Particles when unlocked, default is no upgrade particle is chosen.
+ spawners: false # Should spawner mobs give souls?
+ worlds: # Worlds where souls and upgrades can be obtained.
+  - worldName
+  - worldName_nether
+ blacklist: false # Treat the world list as a blacklist instead.
+ upgrades:
+  upgrade1: # Upgrade name, can be anything.
+   uniqueid: 9307b8ed # Unique id, generated if missing, editing this may cause issues on existing items.
+   type: ATTRIBUTE # Attribute, Enchantment, Power, Modeldata, Itemmodel, Itemname, Displayname, Lore, Loreadd
+   souls-required: 100 
+   entity-type: ZOMBIE # Souls will only add to the item if this entity type is killed.
+   chance: 30.0 # 30% chance to apply per check.
+   # sound:volume:pitch - If only sound, volume & pitch will be 1.0.
+   unlock-sound: BLOCK_RESPAWN_ANCHOR_SET_SPAWN:1.0:1.0 # Sound played when unlocked.
+   # particle:amount:offset:extra - Missing values will be defaulted.
+   unlock-particle: REVERSE_PORTAL:20:0.5:0.02 # Particles when unlocked.
+   # if type Attribute.
+   attribute:
+    attribute: GENERIC_ATTACK_DAMAGE # https://helpch.at/docs/1.21.1/org/bukkit/attribute/Attribute.html
+    amount: 0.2 # 20% with ADD_SCALAR
+    operation: ADD_SCALAR # https://helpch.at/docs/1.21.1/org/bukkit/attribute/AttributeModifier.Operation.html
+    slot: MAINHAND # https://helpch.at/docs/1.21.1/org/bukkit/inventory/EquipmentSlotGroup.html
+   # if type Enchantment.
+   enchantment:
+    enchant: FIRE_ASPECT # https://helpch.at/docs/1.21.1/org/bukkit/enchantments/Enchantment.html
+    level: 2 # Fire Aspect II
+    override: false # Should we exist any enchantment of the same kind, which is higher level?
+   # if type Power.
+   soul-power: template # Custom soul power.
+   # if type Modeldata
+   modeldata: 12345 # Custom Model Data
+   # if type Itemmodel
+   itemmodel: 'minecraft:cool-model'
+   # if type Itemname
+   itemname: 'Soul Harvester'
+   # if type Displayname
+   displayname: '&4Soul Harvester'
+   # if type Lore
+   lore: # Replaces existing lore
+   - line1
+   - line2
+   # if type Loreadd
+   loreadd: # Adds onto existing lore
+   - line1
+   - line2
+   
+ 
+ 
+ 
+ 

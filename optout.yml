@@ -1,0 +1,5 @@
+# Automated data container of players who chose to opt-out of rares spawning near them.
+# This file is only loaded on startup.
+# Requires 'rarespawns.optout' in order to opt-out.
+
+players: []
