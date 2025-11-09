@@ -8,13 +8,19 @@
 [![](https://img.shields.io/spiget/tested-versions/110420?label=Tested%20Version)]()
 [![](https://img.shields.io/badge/Requires-ValorlessUtils-red?style=flat)]()
 [![](https://img.shields.io/github/issues/valorless/RareSpawnsLite?label=Issues)]()
-
-[![](https://img.shields.io/spiget/downloads/110420?label=Downloads)]()
 [![](https://img.shields.io/bstats/servers/18791?label=Servers)]()
+
+Lite: 
+[![](https://img.shields.io/spiget/downloads/110420?label=Downloads)]()
 [![](https://img.shields.io/spiget/rating/110420?label=Rating)]()
 [![](https://img.shields.io/spiget/download-size/110420?label=Size)]()
 [![](https://img.shields.io/spiget/version/110420?label=Version)]() <-- Badges showing HavenBags
 
+Premium: 
+[![](https://img.shields.io/spiget/downloads/110420?label=Downloads)]()
+[![](https://img.shields.io/spiget/rating/110420?label=Rating)]()
+[![](https://img.shields.io/spiget/download-size/110420?label=Size)]()
+[![](https://img.shields.io/spiget/version/110420?label=Version)]() <-- Badges showing HavenBags
 
 Docs: https://valorless.github.io/RareSpawns
 
