@@ -1,6 +1,20 @@
 # RareSpawns
  
 [![Build Plugin](https://github.com/Valorless/RareSpawns/actions/workflows/maven.yml/badge.svg?branch=main)]()
+[![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/Valorless/RareSpawnsLite/total?label=Github%20Downloads)]()
+[![](https://img.shields.io/github/v/release/valorless/RareSpawnsLite?label=Latest%20Release)]()
+
+[![](https://img.shields.io/badge/Versions-%201.21%20--%201.21.10%2B-brightgreen?style=flat)]()
+[![](https://img.shields.io/spiget/tested-versions/110420?label=Tested%20Version)]()
+[![](https://img.shields.io/badge/Requires-ValorlessUtils-red?style=flat)]()
+[![](https://img.shields.io/github/issues/valorless/RareSpawnsLite?label=Issues)]()
+
+[![](https://img.shields.io/spiget/downloads/110420?label=Downloads)]()
+[![](https://img.shields.io/bstats/servers/18791?label=Servers)]()
+[![](https://img.shields.io/spiget/rating/110420?label=Rating)]()
+[![](https://img.shields.io/spiget/download-size/110420?label=Size)]()
+[![](https://img.shields.io/spiget/version/110420?label=Version)]() <-- Badges showing HavenBags
+
 
 Docs: https://valorless.github.io/RareSpawns
 
