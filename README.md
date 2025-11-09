@@ -22,6 +22,8 @@ Premium:
 [![](https://img.shields.io/spiget/download-size/110420?label=Size)]()
 [![](https://img.shields.io/spiget/version/110420?label=Version)]() <-- Badges showing HavenBags
 
+## This page may be slightly out of date, please refer to the Wiki
+
 Docs: https://valorless.github.io/RareSpawns
 
 RareSpawns is a Minecraft plugin for Spigot/Paper that introduces configurable, data-driven rare entity spawns with unique loot and abilities, plus a standalone custom item system. Rares and items are defined by IDs, enabling consistent lookups, integrations, and content reuse. Standalone custom items are not tied to entities and can be granted via commands. A lightweight Java API lets other plugins detect rares, fetch IDs, build items (optionally randomized), and enumerate available entities and abilities. It also exposes events so you can react to rare spawns, updates, and deaths.
