@@ -6,5 +6,21 @@
 
 prefix: '&7[&6RareSpawns&7] '
 
-poweritem-no-exist: '&cSorry, this item no longer exists.'
-poweritem-no-permission: '&cYou do not have permission to use this item.'
+poweritem:
+ no-exist: '&cSorry, this item no longer exists.'
+ no-permission: '&cYou do not have permission to use this item.'
+ no-valid-blocks: '&cYour hotbar has no placeable blocks!'
+
+command:
+ give-random: 'Gave randomized item &e%item%&r to %player%.'
+ give: 'Gave item &e%item%&r to %player%.'
+ kill: 'Killed &e%amount%&r rares.'
+ unknown-item: '&cThis item cannot be found!'
+ opt-out: '&cRares no longer spawn around you.'
+ opt-in: '&aRares again spawn around you.'
+ reload: '&aReloaded %part%.'
+ spawn:
+  not-found: '&cThis entity cannot be found!'
+  success: 'Rare &e%rare%&r spawned at &e%location%&r.'
+  player-not-found: '&cPlayer not found!'
+  

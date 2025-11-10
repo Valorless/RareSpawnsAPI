@@ -4,6 +4,9 @@
 # +------------------------------------------------------+ #
 ############################################################
 
+# Should we check for plugin updates on Spigot?
+check-updates: true
+
 # Rares have a chance to spawn on any natural mob spawns.
 # If spawn-chance is 1000, rares have a 0.1% chance to spawn any time a mob spawns.
 spawn-chance: 25000
