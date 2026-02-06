@@ -21,6 +21,7 @@ spawn-groups:
   id: group1
   chance: 10000
   log-spawns: false # Show spawns in console, this example spawns faster, so we won't show spawns in the console for them.
+  log-deaths: false
   spawn-above-ground: true
   spawn-range-max: 50
   spawn-limit:
@@ -31,6 +32,7 @@ spawn-groups:
    - WorldName
    - WorldName_nether
    - WorldName_the_end
+  whitelist: false # Treat the blacklist as whitelist.
   shared-drops:
   #- item:amount:chance
   #- material:amount
@@ -39,9 +41,13 @@ spawn-groups:
    - template:1
    - DIAMOND:1:20
    - EMERALD:1-4:20
+  specific-entities: []
  group2: # All except "id" are optional
   id: group2
   shared-drops: [] # Drops can be empty to not include any shared at all.
+  specific-entities:
+   - ZOMBIE
+   - SPIDER
 
 # Should rares be forced above ground?
 # Otherwise they can spawn in caves.
@@ -68,6 +74,9 @@ blacklist:
  - WorldName
  - WorldName_nether
  - WorldName_the_end
+ 
+# Whether to treat the blacklist as a whitelist.
+whitelist: false
 
 # Immunity Frames; How often in ticks the rares can be hit, default 20 ticks.
 iframes: 20 # This is overridden if the rare has this setting itself.

@@ -43,6 +43,8 @@ effects:
  - SPEED:1 
  - FIRE_RESISTANCE:1
 items: # Can be custom items.
+ # item:amount
+ # item:min-max (amount)
  main-hand: template
  off-hand: ''
  helmet: CARVED_PUMPKIN
@@ -53,7 +55,9 @@ can-despawn: false
 anti-stuck: true # Teleport to target if stuck. Being stuck is based on movement over a little time.
 attributes:
 # https://helpch.at/docs/1.21.1/org/bukkit/attribute/Attribute.html
- - SCALE:2
+# - attribute:min_max # Cant be - as thats used for negative numbers, so we're using underscore _.
+# - attribute:value
+ - SCALE:1_2
  - MOVEMENT_SPEED:0.05 # 0.1 is default speed.
 iframes: 20 # Immunity Frames; How often in ticks the rare can be hit, default 20 ticks.
 
@@ -79,6 +83,7 @@ death-message:
 
 drop-table:
  real: true # Whether its on the real drop table, or if RareSpawns should drop the items.
+ original: true # Whether to drop the original loot items too.
  items:
   # material:amount
   # material:amount:chance
