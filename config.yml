@@ -13,6 +13,12 @@ spawn-chance: 25000
 # I found that 25000 works well for my own server.
 # (0.004%)
 
+# Show in the console when/where a rare spawns.
+log-spawns: true
+
+# Show in the console when a rare dies.
+log-deaths: true
+
 # Different spawn groups of rares, unaffected by eachother's chances and weights.
 # Any rare entity without a group will default to group "default", using settings from the file.
 # Any unset settings will use default settings.
