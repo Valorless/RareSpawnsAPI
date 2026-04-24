@@ -36,7 +36,7 @@ nameplate:
  see-through: false # Glitches with shadows enabled.
  view-distance: 60
  offset: 0, 1.5, 0
-type: ZOMBIE # Can only be living entities.
+type: ZOMBIE # Can only be living entities. For MythicMobs start with "mythicmob:".
 health: 2000
 effects:
 # https://helpch.at/docs/1.21.1/org/bukkit/potion/PotionEffectType.html
@@ -102,6 +102,12 @@ bossbar:
  color: BLUE # https://helpch.at/docs/1.21.1/org/bukkit/boss/BarColor.html
  style: SEGMENTED_20 # https://helpch.at/docs/1.21.1/org/bukkit/boss/BarStyle.html
  distance: 50
+
+# Spawn this entity with other rares. They will spawn at the same time and location.
+group-spawn:
+ # rareId:amount
+ # rareId:min-max
+ - template:1-5 # Spawning the same rare is also possible, as these don't spawn additional ones.
 
 ### Misc
 hostile: true # If the mob is a passive/neutral mob, make it hostile towards players.

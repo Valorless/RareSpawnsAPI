@@ -4,7 +4,7 @@
 # +------------------------------------------------------+ #
 ############################################################
 
-prefix: '&7[&6RareSpawns&7] '
+prefix: '&7[&6RareSpawns&7]&r '
 
 poweritem:
  no-exist: '&cSorry, this item no longer exists.'

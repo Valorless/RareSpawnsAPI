@@ -13,6 +13,9 @@ spawn-chance: 25000
 # I found that 25000 works well for my own server.
 # (0.004%)
 
+# When spawn-chance triggers, how many times should we attempt to select a rare that meets conditions?
+select-new-limit: 5
+
 # Show in the console when/where a rare spawns.
 log-spawns: true
 
@@ -48,16 +51,26 @@ spawn-groups:
    - DIAMOND:1:20
    - EMERALD:1-4:20
   specific-entities: []
+  spawn-naturally: true # Should rares in this group spawn naturally, or only through hijacking spawns of other entities?
+  height-range: 0,100 # Rares in this group will only spawn between these heights. 0,100 means they can spawn between y0 and y100.
+  require-block: STONE,3 # Requires at least 1 STONE block within 3 blocks of the spawn location.
  group2: # All except "id" are optional
   id: group2
   shared-drops: [] # Drops can be empty to not include any shared at all.
   specific-entities:
    - ZOMBIE
    - SPIDER
+  spawn-naturally: false # This group will only spawn when the spawn of one of the specific-entities is hijacked.
 
 # Should rares be forced above ground?
 # Otherwise they can spawn in caves.
 spawn-above-ground: true
+
+# Should rares spawn naturally, or only through hijacking spawns of other entities?
+spawn-naturally: true
+
+# How often should rares spawn naturally, in ticks. 20 ticks = 1 second.
+natural-spawn-rate: 20
 
 # Maximum distance away from players rares can spawn.
 # The upper limit of this setting depends on server settings.
@@ -95,7 +108,7 @@ health-fix-cap: 7
 # Should we remove old removed rares from the world?
 remove-old-rares: false
 
-# Items that all rares have a chance to drop
+# Items that all rares have a chance to drop.
 shared-drops:
 #- item:amount:chance
 #- material:amount
