@@ -17,6 +17,8 @@ conditions:
  weather: CLEAR # CLEAR, RAIN or THUNDER
  time: DAY # SUNRISE, DAY, SUNSET, NIGHT or a custom range like '0-24000'
  in-water: false
+ direct-sky: false # Whether the spawn location needs to have direct sky access.
+ light-level: 5,15 # Min and max light level required to spawn.
 
 # Everything except 'type' is optional.
 
@@ -116,6 +118,7 @@ aggro-range: 20 # How far should the rare notice players and attack them?
 arrows-in-body: 10
 arrows-despawn-ticks: 999999
 baby: false
+breedable: false # Must be naturally breedable, cannot breed Zombies for example.
 pick-up-items: false
 collidable: true
 gliding: false

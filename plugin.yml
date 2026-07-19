@@ -15,6 +15,10 @@ loadbefore:
 - Nexo
 - ItemsAdder
 - Oraxen
+libraries:
+  - org.json:json:20231013
+  - net.kyori:adventure-api:4.25.0
+  - net.kyori:adventure-key:4.25.0
 commands:
   rarespawns:
     description: Main command.

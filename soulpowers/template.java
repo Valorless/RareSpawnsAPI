@@ -1,7 +1,7 @@
 // Class name must be the same as the file name
 import org.bukkit.entity.Player;
 
-import valorless.valorlessutils.ValorlessUtils.Log;
+import valorless.valorlessutils.logging.Log;
 @SoulPowerInfo(
 	type = "onAttack", // trigger type (onAttack, onDefence, onKill, onEquip, etc.)
 	cooldown = "5", // cooldown in seconds

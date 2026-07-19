@@ -81,6 +81,7 @@ spawn-range-max: 100
 spawn-limit:
  amount: 5 # -1 to disable
  range: 100
+ total: 300 # Total amount of rares that can exist at once, regardless of players. -1 to disable.
 
 # Should we spawn firework where the rare has spawned?
 spawn-firework:
@@ -117,4 +118,6 @@ shared-drops:
  - template:1
  - DIAMOND:1:20
  - EMERALD:1-4:20
+
+afk-threshold-minutes: 5
  
